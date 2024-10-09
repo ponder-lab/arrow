@@ -113,7 +113,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        jdk: [11]
+        jdk: [21]
     steps:
       - name: Set up Java
         uses: actions/setup-java@v4
@@ -144,7 +144,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        jdk: [11]
+        jdk: [21]
     steps:
       - name: Set up Java
         uses: actions/setup-java@v4

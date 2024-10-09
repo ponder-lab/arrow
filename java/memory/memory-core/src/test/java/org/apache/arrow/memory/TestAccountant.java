@@ -48,7 +48,7 @@ public class TestAccountant {
     for (int i = 0; i < numberOfThreads; i++) {
       Thread t = Thread.ofVirtual().unstarted(() -> {
         try {
-          for (int i = 0; i < loops; i++) {
+          for (int j = 0; i < loops; j++) {
             ensureAccurateReservations(parent);
           }
         } catch (Exception ex) {

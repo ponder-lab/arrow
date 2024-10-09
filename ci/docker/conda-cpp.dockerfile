@@ -19,6 +19,8 @@ ARG repo
 ARG arch
 FROM ${repo}:${arch}-conda
 
+ARG jdk=21
+
 COPY ci/scripts/install_minio.sh /arrow/ci/scripts
 RUN /arrow/ci/scripts/install_minio.sh latest /opt/conda
 

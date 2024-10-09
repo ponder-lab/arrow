@@ -18,6 +18,8 @@
 ARG arch=amd64
 FROM ${arch}/ubuntu:22.04
 
+ARG jdk=21
+
 # install build essentials
 RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get update -y -q && \

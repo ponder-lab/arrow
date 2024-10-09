@@ -117,7 +117,7 @@ under the License.
     <!-- List of add-opens arg line arguments for tests -->
     <surefire.add-opens.argLine>--add-opens=java.base/java.nio=org.apache.arrow.memory.core,ALL-UNNAMED</surefire.add-opens.argLine>
     <!-- org.apache:apache overrides -->
-    <minimalJavaBuildVersion>21</minimalJavaBuildVersion>
+    <minimalJavaBuildVersion>11</minimalJavaBuildVersion>
     <maven.compiler.source>21</maven.compiler.source>
     <maven.compiler.target>21</maven.compiler.target>
     <maven.compiler.release>21</maven.compiler.release>

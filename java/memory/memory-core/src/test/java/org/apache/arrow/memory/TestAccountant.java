@@ -46,7 +46,7 @@ public class TestAccountant {
     Thread[] threads = new Thread[numberOfThreads];
 
     for (int i = 0; i < numberOfThreads; i++) {
-      Thread t = Thread.ofVirtual(() -> {
+      Thread t = Thread.ofVirtual().unstarted(() -> {
         try {
           for (int i = 0; i < loops; i++) {
             ensureAccurateReservations(parent);

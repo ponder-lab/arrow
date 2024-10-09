@@ -47,7 +47,7 @@ public class ParallelSearcherBenchmarks {
   @State(Scope.Benchmark)
   public static class SearchState {
 
-    @Param({"1", "2", "5", "10", "20", "50", "100"})
+    @Param({"1", "2", "5", "10", "20", "50", "100", "200", "500", "1000", "2000", "5000"})
     int numThreads;
 
     BufferAllocator allocator;

@@ -67,7 +67,7 @@ public class ParallelSearcherBenchmarks {
       targetVector.allocateNew(VECTOR_LENGTH);
       keyVector = new IntVector("key vector", allocator);
       keyVector.allocateNew(1);
-      threadPool = Executors.newFixedThreadPool(numThreads);
+      threadPool = Executors.newVirtualThreadPerTaskExecutor();
 
       for (int i = 0; i < VECTOR_LENGTH; i++) {
         targetVector.set(i, i);

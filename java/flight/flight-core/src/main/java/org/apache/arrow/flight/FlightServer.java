@@ -311,9 +311,8 @@ public class FlightServer implements AutoCloseable {
         grpcExecutor = null;
       } else {
         exec =
-            Executors.newThreadPerTaskExecutor(Thread.ofVirtual()
-                                                     .name("flight-server-default-executor-", 0)
-                                                     .factory());
+            Executors.newThreadPerTaskExecutor(
+                Thread.ofVirtual().name("flight-server-default-executor-", 0).factory());
         grpcExecutor = exec;
       }
 

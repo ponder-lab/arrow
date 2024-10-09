@@ -126,7 +126,7 @@ public class ProjectorTest extends BaseEvaluatorTest {
     // build projectors in parallel choosing schema at random
     // this should hit the same cache entry thus exposing
     // any threading issues.
-    ExecutorService executors = Executors.newFixedThreadPool(16);
+    ExecutorService executors = Executors.newVirtualThreadPerTaskExecutor();
 
     IntStream.range(0, 1000)
         .forEach(
@@ -348,7 +348,7 @@ public class ProjectorTest extends BaseEvaluatorTest {
     ExpressionTree expr = TreeBuilder.makeExpression("divide", args, c);
     List<ExpressionTree> exprs = Lists.newArrayList(expr);
 
-    ExecutorService executors = Executors.newFixedThreadPool(16);
+    ExecutorService executors = Executors.newVirtualThreadPerTaskExecutor();
 
     AtomicInteger errorCount = new AtomicInteger(0);
     AtomicInteger errorCountExp = new AtomicInteger(0);

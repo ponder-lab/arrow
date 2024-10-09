@@ -103,10 +103,9 @@ class IntegrationTest {
     TestBufferAllocationListener listener = new TestBufferAllocationListener();
     try (final BufferAllocator allocator = new RootAllocator(listener, Long.MAX_VALUE)) {
       final ExecutorService exec =
-          Executors.newCachedThreadPool(
-              new ThreadFactoryBuilder()
-                  .setNameFormat("integration-test-flight-server-executor-%d")
-                  .build());
+      	  Executors.newThreadPerTaskExecutor(Thread.ofVirtual()
+            					     .name("integration-test-flight-server-executor-", 0)
+            					     .factory());
       final FlightServer.Builder builder =
           FlightServer.builder()
               .executor(exec)

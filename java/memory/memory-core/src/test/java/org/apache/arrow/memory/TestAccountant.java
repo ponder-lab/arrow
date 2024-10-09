@@ -46,21 +46,16 @@ public class TestAccountant {
     Thread[] threads = new Thread[numberOfThreads];
 
     for (int i = 0; i < numberOfThreads; i++) {
-      Thread t =
-          new Thread() {
-
-            @Override
-            public void run() {
-              try {
-                for (int i = 0; i < loops; i++) {
-                  ensureAccurateReservations(parent);
-                }
-              } catch (Exception ex) {
-                ex.printStackTrace();
-                fail(ex.getMessage());
-              }
-            }
-          };
+      Thread t = Thread.ofVirtual(() -> {
+      	try {
+          for (int i = 0; i < loops; i++) {
+            ensureAccurateReservations(parent);
+          }
+        } catch (Exception ex) {
+          ex.printStackTrace();
+          fail(ex.getMessage());
+        }
+      });
       threads[i] = t;
       t.start();
     }

@@ -165,7 +165,7 @@ public class FlightSqlExample implements FlightSqlProducer, AutoCloseable {
   public static final String DB_NAME = "derbyDB";
   private final String databaseUri;
   // ARROW-15315: Use ExecutorService to simulate an async scenario
-  private final ExecutorService executorService = Executors.newFixedThreadPool(10);
+  private final ExecutorService executorService = Executors.newVirtualThreadPerTaskExecutor();
   private final Location location;
   protected final PoolingDataSource<PoolableConnection> dataSource;
   protected final BufferAllocator rootAllocator = new RootAllocator();

@@ -16,7 +16,6 @@
  */
 package org.apache.arrow.flight;
 
-import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import io.grpc.Server;
 import io.grpc.ServerInterceptors;
 import io.grpc.netty.GrpcSslContexts;
@@ -313,8 +312,8 @@ public class FlightServer implements AutoCloseable {
       } else {
         exec =
             Executors.newThreadPerTaskExecutor(Thread.ofVirtual()
-            					     .name("flight-server-default-executor-", 0)
-            					     .factory());
+                                                     .name("flight-server-default-executor-", 0)
+                                                     .factory());
         grpcExecutor = exec;
       }
 

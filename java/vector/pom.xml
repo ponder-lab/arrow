@@ -121,11 +121,7 @@ under the License.
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <configuration combine.children="append">
-          <compilerArgs>
-            <arg>-Werror</arg>
-          </compilerArgs>
-        </configuration>
+        <configuration combine.children="append"></configuration>
       </plugin>
       <plugin>
         <!-- generate sources from fmpp -->

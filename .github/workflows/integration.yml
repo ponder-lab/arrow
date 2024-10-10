@@ -65,6 +65,8 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ !contains(github.event.pull_request.title, 'WIP') }}
     timeout-minutes: 60
+    env:
+      JDK: 21
     steps:
       - name: Setup Java 21
         uses: actions/setup-java@v3
@@ -110,6 +112,7 @@ jobs:
         env:
           ARCHERY_DOCKER_USER: ${{ secrets.DOCKERHUB_USER }}
           ARCHERY_DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
+          JDK: 21
         run: |
           source ci/scripts/util_enable_core_dumps.sh
           archery docker run \

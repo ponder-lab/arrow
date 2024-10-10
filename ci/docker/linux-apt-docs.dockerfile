@@ -23,7 +23,7 @@ ARG jdk=21
 
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
 
-RUN apt-cache search openjdk
+RUN java -version
 
 # See R install instructions at https://cloud.r-project.org/bin/linux/
 RUN apt-get update -y && \

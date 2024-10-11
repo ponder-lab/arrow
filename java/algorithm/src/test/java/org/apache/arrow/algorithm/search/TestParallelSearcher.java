@@ -79,7 +79,7 @@ public class TestParallelSearcher {
   @MethodSource("getComparatorName")
   public void testParallelIntSearch(ComparatorType comparatorType, int threadCount)
       throws ExecutionException, InterruptedException {
-    threadPool = Executors.newFixedThreadPool(threadCount);
+    threadPool = Executors.newVirtualThreadPerTaskExecutor();
     try (IntVector targetVector = new IntVector("targetVector", allocator);
         IntVector keyVector = new IntVector("keyVector", allocator)) {
       targetVector.allocateNew(VECTOR_LENGTH);
@@ -118,7 +118,7 @@ public class TestParallelSearcher {
   @MethodSource("getComparatorName")
   public void testParallelStringSearch(ComparatorType comparatorType, int threadCount)
       throws ExecutionException, InterruptedException {
-    threadPool = Executors.newFixedThreadPool(threadCount);
+    threadPool = Executors.newVirtualThreadPerTaskExecutor();
     try (VarCharVector targetVector = new VarCharVector("targetVector", allocator);
         VarCharVector keyVector = new VarCharVector("keyVector", allocator)) {
       targetVector.allocateNew(VECTOR_LENGTH);

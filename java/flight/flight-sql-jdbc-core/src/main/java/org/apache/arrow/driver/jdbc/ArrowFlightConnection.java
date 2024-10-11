@@ -158,6 +158,7 @@ public final class ArrowFlightConnection extends AvaticaConnection {
   synchronized ExecutorService getExecutorService() {
     return executorService =
         executorService == null
+            // Refactoring this would require defining a new custom thread factory class
             ? Executors.newFixedThreadPool(
                 config.threadPoolSize(), new DefaultThreadFactory(getClass().getSimpleName()))
             : executorService;

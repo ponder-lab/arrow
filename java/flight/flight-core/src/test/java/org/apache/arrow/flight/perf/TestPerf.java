@@ -85,7 +85,7 @@ public class TestPerf {
   public void throughput() throws Exception {
     final int numRuns = 10;
     ListeningExecutorService pool =
-        MoreExecutors.listeningDecorator(Executors.newFixedThreadPool(4));
+        MoreExecutors.listeningDecorator(Executors.newVirtualThreadPerTaskExecutor());
     double[] throughPuts = new double[numRuns];
 
     for (int i = 0; i < numRuns; i++) {

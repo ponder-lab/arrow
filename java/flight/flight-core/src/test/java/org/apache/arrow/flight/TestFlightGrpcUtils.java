@@ -52,7 +52,7 @@ public class TestFlightGrpcUtils {
     allocator = new RootAllocator(Integer.MAX_VALUE);
     final NoOpFlightProducer producer = new NoOpFlightProducer();
     final ServerAuthHandler authHandler = ServerAuthHandler.NO_OP;
-    final ExecutorService exec = Executors.newCachedThreadPool();
+    final ExecutorService exec = Executors.newVirtualThreadPerTaskExecutor();
     final BindableService flightBindingService =
         FlightGrpcUtils.createFlightService(allocator, producer, authHandler, exec);
 
